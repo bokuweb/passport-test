@@ -3,6 +3,10 @@ extends layout
 block content
   if !user
     h2 Welcome! Please log in.
+    a(href="/auth/hatena") Login with Hatena    
   else
     h2 Hello,#{user.displayName}
+    a(href="/logout") Logout  
+
+
 

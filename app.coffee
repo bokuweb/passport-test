@@ -12,9 +12,8 @@ util = require('util')
 HatenaStrategy = require('passport-hatena').Strategy
 session = require('express-session')
 
-HATENA_CONSUMER_KEY = "xxxxx"
-HATENA_SECRET_KEY = "xxxxx"
-
+HATENA_CONSUMER_KEY = "consumerkeyhere"
+HATENA_SECRET_KEY = "secretkeyhere"
 
 # Passport session setup.
 #   To support persistent login sessions, Passport needs to be able to
@@ -76,10 +75,6 @@ app.use '/users', users
 app.get '/', (req, res)->
   res.render 'index', { user: req.user }
 
-
-#app.get '/account', ensureAuthenticated, (req, res)->
-#  res.render 'account', { user: req.user }
-
 app.get '/login', (req, res)->
   res.render 'login', { user: req.user }
 
@@ -101,9 +96,9 @@ app.get '/auth/hatena/callback',
   (req, res)->
     res.redirect('/')
 
-#app.get '/logout', (req, res)->
-#  req.logout()
-#  res.redirect('/')
+app.get '/logout', (req, res)->
+  req.logout()
+  res.redirect('/')
 
 
 # error handlers
